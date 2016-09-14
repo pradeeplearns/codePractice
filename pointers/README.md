@@ -18,3 +18,12 @@ Best resource to refresh pointers would be to watch [video series](https://www.y
 ## Pointer to Pointer
 ---------------------
 ![](p2p.png)
+
+## Pointers as function argument
+
+Essentially when we set an argument as 
+```
+function foo(int* p) {}
+```
+
+We are saying that this function needs to be passed with a **&arg** because int* is also a representation to &a if a was an intger.
