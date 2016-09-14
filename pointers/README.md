@@ -67,3 +67,17 @@ void swap(int *a, int *b) {
 }
 ```
 Did you notice how I could simply pass array elements withou using & in the swap function. This is only possible because arrays are pass by reference not pass by value.
+
+## Array as function argument
+
+Its very common to pass an array as a function argument. Given arrays can be of huge size whenever we pass an array as argument to any funtion its a **Pass by reference** so the function will create a new variable in its stack and reffer to the original array. Look at the below snippet for an interesting observation.
+
+![](ArrayAsArg.png)
+
+Did you see how size of array in function says its just one while in main method it's 5. The reason for this is array is being Passed by reference due to which the function argument is just an integer pointer to the actual array. So its size is equal to integer byte size.
+
+Here is a detailed image explaining this.
+
+![](explanationToSizeIssue.png)
+
+
