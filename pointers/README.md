@@ -49,8 +49,8 @@ so the code would be as below
 ```
 //Returns pointer to the new array
 int* reverse() {
-  int arr[5] = {1, 2, 3, 4, 5};
-  int start = 0, length = 5;
+  int arr[] = {1, 2, 3, 4, 5};
+  int start = 0, length = 5; //just because length is static for the example
   
   while(start < length) {
     swap(arr[start++], arr[--length]);  //Passing array elements without using &
