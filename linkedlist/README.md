@@ -46,4 +46,39 @@ Node* InsertNth(Node *head, int data, int position)
 ``` 
 
 **Time Complexity** : O(n)  In worst case list has to be iterated till the end.
+
 **Space Complexity** : O(1) Extra space is only used to create new node.
+-----------------------------------------------------------------------
+
+### Delete at Nth position
+```
+Node* Delete(Node *head, int position)
+{
+  // Complete this method
+    Node *current;
+    if(position == 0) {
+        current = head->next;
+        delete head;
+        head = current;
+    } else {
+        Node *temp = head;
+        while(position > 1) {
+            head = head->next;
+            position--;
+        }
+        
+        current = head->next->next;
+        delete head->next;
+        head->next = current;
+        
+        head = temp;
+    }
+    
+    return head;
+}
+```
+
+**Time Complexity** : O(n)  In worst case list has to be iterated till the end.
+
+**Space Complexity** : O(1) Extra space is only used to create new node.
+
