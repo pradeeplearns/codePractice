@@ -1,6 +1,6 @@
-### Linked List Concepts
+## Linked List Concepts
 
-## Insert node at specific location
+### Insert node at specific location
 ```
 /*
   Insert Node at a given position in a linked list 
@@ -44,3 +44,6 @@ Node* InsertNth(Node *head, int data, int position)
     return head;
 }
 ``` 
+
+**Time Complexity** : O(n)  In worst case list has to be iterated till the end.
+**Space Complexity** : O(1) Extra space is only used to create new node.
