@@ -113,6 +113,7 @@ void ReversePrint(Node *head)
 }
 ```
 **Reverse Printing list by Recursion**
+Recursive calls use stack to store function calls so they cause more stack space to be utilized while being executed. So if you call n times a recursive call then u are taking O(n) space on the stack during program execution.
 ```
 void printReverse(Node* head) {
     Node* temp = head;
