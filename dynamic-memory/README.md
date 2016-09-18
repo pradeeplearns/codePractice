@@ -50,7 +50,7 @@ As we read earlier Heap does not deallocates the memory blocks assigned during t
 
 ```
 free(p);		//Will deallocate p 
-'''
+```
 
 **In C++**
 -----------
