@@ -80,4 +80,85 @@ Here is a detailed image explaining this.
 
 ![](explanationToSizeIssue.png)
 
+## Fucntion Pointers
+
+Pointers --> can also point to a function.
+
+If we understand how a particular program gets converted into machine language then we would see that all code is converted into instructions for machine. So generally instructions for a program is executed sequentially unless any instruction itself sends it to some particular address like a function call. **In memory block code stores these instructions**
+
+```
+int Add(int a, int b){
+	return a+b;
+}
+
+void printHello() {
+	cout << "hello world!\n";
+}
+
+int main() {
+	//Pointer to function that should take (int, int) as argument/parameter and return int
+	int (*p)(int,int);	//Paranthesis are important otherwise it would be function declaration returning a int*
+				//type of p should always be return type of function
+	
+	p = &Add; or p = Add;	//Now p points to function Add
+	c = (*p)(2,3); or c = p(2,3);	//derefrencing and executing the function
+
+	cout << c;		//5
+	
+	void (*k)();
+	k = printHello;
+	k();			//Will print hello world!
+
+	return 0;
+}
+```
+
+## Function callbacks
+
+All the usecases of **function pointers** is that functions can be passed as argument to other functions. Then a function which will recieve a function pointer as argument can **callback** that function that this pointer will point to.
+
+```
+void A() {
+	cout << "Hello\n";
+}
+
+void B(void (*p)()) {			//Function pointer as argument
+   p();
+}
+int main() {
+	void (*p)() = A;		//We can directly pass A without declaring it as well
+	B(A);				//B Will callback on A and print hello
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
