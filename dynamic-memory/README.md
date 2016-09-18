@@ -36,6 +36,9 @@ Calloc works like malloc but it also assigns 0 to all the initialize blocks. It 
 ```
 int* p = (int*) calloc(n, sizeof(int)); 	//assigns 3 blocks of int size memory
 ```
+According to the standard, calloc does not store 0, but sets all bits zero. This does not necessarily result in a float 0.0 or a null pointer constant, as they might have other binary representations. For integer types, however, 0 has all bits zero, so this works.
+
+**To set structured values (some constant c) of an allocated array, there is no way around using a loop**
 
 ## realloc
 Realloc is used in case you want to increase or decrease the already allocated memory block. It takes two variables pointer to the memory block you want to change size for and n*size_t. n being the new size.
