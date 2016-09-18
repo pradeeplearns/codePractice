@@ -51,3 +51,11 @@ As we read earlier Heap does not deallocates the memory blocks assigned during t
 ```
 free(p);		//Will deallocate p 
 '''
+
+**In C++**
+-----------
+In C++ we use **new** and **delete** for allocation and deallocation of memory.
+```
+int *p = new int[20];    //will assign a memory block of size 20 integer array
+delete p;               //will deallocate the memory block and free the memory
+```
