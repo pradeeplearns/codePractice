@@ -62,3 +62,6 @@ In C++ we use **new** and **delete** for allocation and deallocation of memory.
 int *p = new int[20];    //will assign a memory block of size 20 integer array
 delete p;               //will deallocate the memory block and free the memory
 ```
+
+## Memory Leak
+When we assign some heap memory during the execution of the program and ignore or forget to deallocate/free it. It causes memory leak in Heap memory. As that memory block is abondoned into Heap without any further use. 
