@@ -187,3 +187,7 @@ Node* reverseList(Node* head) {
 ```
 
 Explained [Solution](http://stackoverflow.com/questions/14080758/reversing-a-linkedlist-recursively-in-c)
+
+### Doubly Linked List
+
+![](doublyList.png)
