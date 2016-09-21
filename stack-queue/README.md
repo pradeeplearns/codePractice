@@ -67,6 +67,7 @@ public interface StackInterface<AnyType>
 
 **Infix** is best for human readable but **Prefix & Postfix** are good for machines.
 
+### Infix to Postfix
+While we iterate through the Infix expression every Operand will be appended to the result Postfix expression and when we see an Operator we will push it on stack but before we push it on Stack we must check if stack already has some Operators in case if it has then we compare with the Stack top and see if the stack top Operator is bigger(preffered) than  the current one then we pop all the operators and append it to result and then push the current operator on the stack, we continue till we reach the end of Infix operation then we just pop any Operator left in stack and append it to result Postfix expression. Check the code in file InfixToPostfix.cpp.
 
-
-
+**Expression with Paranthesis** If Infix expression also has paranthesis then in that case we will follow similar strategy with just one modification. We push every open paranthesis till we hit a close paranthesis in that case we will pop all the operators and append to result till we find an Open Paranthesis in the stack then we break the loop an pop that open paranthesis from stack. Repeat.
