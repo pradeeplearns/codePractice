@@ -169,6 +169,23 @@ Node* deleteAtN(Node* head, int pos) {
     return head;
 }
 
+Node* reverseList(Node* head) {
+    Node* temp = head;
+    Node* swap = NULL;
+
+    while(temp != NULL) {
+        swap = temp->prev;
+        temp->prev = temp->next;
+        temp->next = swap;
+
+        temp = temp->prev;                  //Prev Because address has changed with swap
+    }
+
+    if(swap != NULL) head = swap->prev;     //Checking in case of single node
+
+    return head;
+}
+
 int main() {
     Node* head = NULL;
 
@@ -179,7 +196,9 @@ int main() {
     head = insertAtN(head, 5, 2);
     print(head);
     reversePrint(head);
-    
+    head = reverseList(head);    
+    cout << "List has been reversed permanently\n";
+    print(head);
     head = deleteAtHead(head);
 
     print(head);

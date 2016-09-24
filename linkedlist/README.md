@@ -188,6 +188,24 @@ Node* reverseList(Node* head) {
 
 Explained [Solution](http://stackoverflow.com/questions/14080758/reversing-a-linkedlist-recursively-in-c)
 
+### Detect Cycle in Linked List
+**Floyd’s Cycle-Finding Algorithm:**
+This is the fastest method. Traverse linked list using two pointers.  Move one pointer by one and other pointer by two.  If these pointers meet at some node then there is a loop.  If pointers do not meet then linked list doesn’t have loop.
+
 ### Doubly Linked List
 
 ![](doublyList.png)
+
+### Find Merge point of two Linked List
+**Through Iteration**
+
+Go through O(n^2) solution by iterating both lists in a nested for loop and checking with every node. Once found the same node come out and return.
+
+**Best Approach**
+
+* Find length of both the linked lists
+* Find the difference in length of lists and move the larger list by that difference
+* Now iterate both lists together and find common point
+* If reached then return else if we reach the end of list then there is no common point present.
+
+
