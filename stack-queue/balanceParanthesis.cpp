@@ -43,12 +43,13 @@ int main() {
     }
 
     st.push(s[0]);
-
+	bool check = true;
     for(int i = 1; i < s.size(); i++) {
         if(isClosePara(s[i])) {
             if(!st.empty() && paraBalance(st.top(), s[i])) {
                 st.pop();
             } else {
+				check = false;
                 cout << "Paranthesis are not ballanced\n";
                 return 0;
             }
@@ -57,7 +58,11 @@ int main() {
         }
     }
 
-    cout << "Paranthesis are ballanced\n";
+	if(check && st.empty()) {
+		cout << "Paranthesis are ballanced\n";
+	} else if(!check || !st.empty()) {
+		cout << "Paranthesis are not ballanced\n";
+	}  
 
     return 0;
 }          
