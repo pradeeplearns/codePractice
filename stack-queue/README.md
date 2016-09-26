@@ -19,11 +19,9 @@ Another application is an "undo" mechanism in text editors; this operation is ac
 Once you reach a dead end, you must backtrack. But backtrack to where? to the previous choice point. Therefore, at each choice point you store on a stack all possible choices. Then backtracking simply means popping a next choice from the stack.
 
 ### Language processing:
-space for parameters and local variables is created internally using a stack.
-
-compiler's syntax check for matching braces is implemented by using stack.
-
-support for recursion
+* space for parameters and local variables is created internally using a stack.
+* compiler's syntax check for matching braces is implemented by using stack.
+* support for recursion
 
 ```
 public interface StackInterface<AnyType>
@@ -71,3 +69,70 @@ public interface StackInterface<AnyType>
 While we iterate through the Infix expression every Operand will be appended to the result Postfix expression and when we see an Operator we will push it on stack but before we push it on Stack we must check if stack already has some Operators in case if it has then we compare with the Stack top and see if the stack top Operator is bigger(preffered) than  the current one then we pop all the operators and append it to result and then push the current operator on the stack, we continue till we reach the end of Infix operation then we just pop any Operator left in stack and append it to result Postfix expression. Check the code in file InfixToPostfix.cpp.
 
 **Expression with Paranthesis** If Infix expression also has paranthesis then in that case we will follow similar strategy with just one modification. We push every open paranthesis till we hit a close paranthesis in that case we will pop all the operators and append to result till we find an Open Paranthesis in the stack then we break the loop an pop that open paranthesis from stack. Repeat.
+
+------------------------------------------------------------
+### Queue
+A queue is a container of objects (a linear collection) that are inserted and removed according to the first-in first-out (FIFO) principle. An excellent example of a queue is a line of students in the food court of the UC. New additions to a line made to the back of the queue, while removal (or serving) happens in the front. In the queue only two operations are allowed enqueue and dequeue. Enqueue means to insert an item into the back of the queue, dequeue means removing the front item. The picture demonstrates the FIFO access.
+
+### Implementation
+
+In the standard library of classes, the data type queue is an adapter class, meaning that a queue is built on top of other data structures. The underlying structure for a queue could be an array, a Vector, an ArrayList, a LinkedList, or any other collection. Regardless of the type of the underlying data structure, a queue must implement the same functionality. This is achieved by providing a unique interface.
+
+```
+interface QueueInterface‹AnyType>
+{
+   public boolean isEmpty();
+
+   public AnyType getFront();
+
+   public AnyType dequeue();
+
+   public void enqueue(AnyType e);
+
+   public void clear();
+}
+```
+
+Each of the above basic operations must run at constant time O(1).
+
+### Circular Queue
+While implementing queue using Array data structure, we run into a problem where we have reached the end of the array but we have some empty space at the front of the array. So to utilize that space the concept of circular array was evolved which is a theratical concept while array is still the same but we start setting as follows so that we can always use empty space at the front of the array.
+
+```
+//Here N is size of array so below formula ensures once we reach the end of array it restarts from the 0th index.
+rear = (rear+1)%N
+```
+
+### Applications
+
+The simplest two search techniques are known as Depth-First Search(DFS) and Breadth-First Search (BFS). These two searches are described by looking at how the search tree (representing all the possible paths from the start) will be traversed.
+
+**Deapth-First Search with a Stack**
+
+In depth-first search we go down a path until we get to a dead end; then we backtrack or back up (by popping a stack) to get an alternative path.
+
+```
+Create a stack
+Create a new choice point
+Push the choice point onto the stack
+while (not found and stack is not empty)
+Pop the stack
+Find all possible choices after the last one tried
+Push these choices onto the stack
+Return
+```
+
+**Breadth-First Search with a Queue**
+
+In breadth-first search we explore all the nearest possibilities by finding all possible successors and enqueue them to a queue.
+
+```
+Create a queue
+Create a new choice point
+Enqueue the choice point onto the queue
+while (not found and queue is not empty)
+Dequeue the queue
+Find all possible choices after the last one tried
+Enqueue these choices onto the queue
+Return
+```
